@@ -9,6 +9,23 @@ soong_config_module_type {
     ],
 }
 
+soong_config_module_type {
+    name: "vendor_init",
+    module_type: "cc_defaults",
+    config_namespace: "hentaiGlobalVars",
+    value_variables: ["target_init_vendor_lib"],
+    properties: ["whole_static_libs"],
+}
+
+vendor_init {
+    name: "vendor_init_defaults",
+    soong_config_variables: {
+        target_init_vendor_lib: {
+            whole_static_libs: ["%s"],
+        },
+    },
+}
+
 surfaceflinger_fod_lib {
     name: "surfaceflinger_fod_lib_defaults",
     soong_config_variables: {
